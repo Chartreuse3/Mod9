@@ -169,28 +169,39 @@ Console.Clear();
 // Console.WriteLine($"Number of characters with no alias: {noAliasCount}");
 
 // [1.21c] List the character(s) with no alias (all series) - return character name, alias, and series only.
-var noAliasCharacters = characters.Where(c => c.Alias == null || c.Alias.Count == 0).Select(c => 
-    {
-        string alias = "No Alias";
-        string series = "No Series";
-        if (c.Alias != null)
-        {
-            alias = string.Join(", ", c.Alias);
-        }
-        if (c.Series != null)
-        {
-            series = string.Join(", ", c.Series);
-        }
-        return new 
-        {
-            Name = c.Name,
-            Alias = alias,
-            Series = series
-        };
-    });
+// var noAliasCharacters = characters.Where(c => c.Alias == null || c.Alias.Count == 0).Select(c => 
+//     {
+//         string alias = "No Alias";
+//         string series = "No Series";
+//         if (c.Alias != null)
+//         {
+//             alias = string.Join(", ", c.Alias);
+//         }
+//         if (c.Series != null)
+//         {
+//             series = string.Join(", ", c.Series);
+//         }
+//         return new 
+//         {
+//             Name = c.Name,
+//             Alias = alias,
+//             Series = series
+//         };
+//     });
 
-Console.WriteLine("Characters with no alias (including Mario series):");
-foreach (var character in noAliasCharacters)
+// Console.WriteLine("Characters with no alias (including Mario series):");
+// foreach (var character in noAliasCharacters)
+// {
+//     Console.WriteLine($"Name: {character.Name}, Alias: {character.Alias}, Series: {character.Series}");
+// }
+
+// [1.21d] Are there any character(s) with no alias (Mario series)?
+bool hasNoAliasMario = characters.Any(c => (c.Alias == null || !c.Alias.Any()) && c.Series.Contains("Mario"));
+if (hasNoAliasMario)
 {
-    Console.WriteLine($"Name: {character.Name}, Alias: {character.Alias}, Series: {character.Series}");
+    Console.WriteLine("There are characters with no alias in the Mario series.");
+}
+else
+{
+    Console.WriteLine("All characters in the Mario series have an alias.");
 }
