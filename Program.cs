@@ -258,5 +258,13 @@ Console.Clear();
 // }
 
 // [1.22a] Do any character(s) have an alias of Snowmad King (return type must be boolean)?
-bool hasSnowmadKingAlias = characters.Any(c => c.Alias.Contains("Snowmad King"));
-Console.WriteLine($"{hasSnowmadKingAlias}");
+// bool hasSnowmadKingAlias = characters.Any(c => c.Alias.Contains("Snowmad King"));
+// Console.WriteLine($"{hasSnowmadKingAlias}");
+
+// [1.22b] List the character(s) that have an alias of Snowmad King - return character name and alias only.
+var snowmadKingCharacters = characters.Where(c => c.Alias?.Contains("Snowmad King") == true).Select(c => new { c.Name, Alias = "Snowmad King" });
+Console.WriteLine("Characters with an alias of 'Snowmad King':");
+foreach (var character in snowmadKingCharacters)
+{
+    Console.WriteLine($"Name: {character.Name}, Alias: {character.Alias}");
+}
