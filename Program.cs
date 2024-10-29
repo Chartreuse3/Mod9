@@ -228,13 +228,17 @@ Console.Clear();
 // }
 
 // [1.21g] Are there any character(s) with no alias (Donkey Kong series)?
-bool hasNoAliasDK = characters.Any(c => (c.Alias == null || c.Alias.Count == 0) && c.Series.Contains("Donkey Kong"));
+// bool hasNoAliasDK = characters.Any(c => (c.Alias == null || c.Alias.Count == 0) && c.Series.Contains("Donkey Kong"));
 
-if (hasNoAliasDK)
-{
-    Console.WriteLine("There are characters with no alias in the Donkey Kong series.");
-}
-else
-{
-    Console.WriteLine("All characters in the Donkey Kong series have an alias.");
-}
+// if (hasNoAliasDK)
+// {
+//     Console.WriteLine("There are characters with no alias in the Donkey Kong series.");
+// }
+// else
+// {
+//     Console.WriteLine("All characters in the Donkey Kong series have an alias.");
+// }
+
+// [1.21h] How many character(s) with no alias (Donkey Kong series)?
+int noAliasDKCount = characters.Count(c => (c.Alias == null || c.Alias.Count == 0) && c.Series.Contains("Donkey Kong"));
+Console.WriteLine($"Number of characters with no alias in the Donkey Kong series: {noAliasDKCount}");
