@@ -287,10 +287,14 @@ Console.Clear();
 // Console.WriteLine($"Number of characters with the species 'Kremling': {kremlingCount}");
 
 // [1.24b] List the character(s) that have a species of Kremling - return character name only.
-var kremlingCharacters = characters.Where(c => c.Species == "Kremling").Select(c => c.Name);
+// var kremlingCharacters = characters.Where(c => c.Species == "Kremling").Select(c => c.Name);
 
-Console.WriteLine("Characters with the species 'Kremling':");
-foreach (var name in kremlingCharacters)
-{
-    Console.WriteLine(name);
-}
+// Console.WriteLine("Characters with the species 'Kremling':");
+// foreach (var name in kremlingCharacters)
+// {
+//     Console.WriteLine(name);
+// }
+
+// [1.25a] How many character(s) in the Mario series are Human species?
+int humanMarioCount = characters.Count(c => c.Species == "Human");
+Console.WriteLine($"Number of human characters in the Mario series: {humanMarioCount}");
