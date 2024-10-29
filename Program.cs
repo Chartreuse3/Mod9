@@ -104,15 +104,19 @@ Console.Clear();
 // }
 
 // [19.a] List Characters from both series created in 1981
-Console.WriteLine("Characters from both series made in 1981:\n");
-foreach(CharacterDTO characterDTO in characters.Where(c => c.YearCreated == 1981).Select(c => new CharacterDTO{ Id = c.Id, Name = c.Name, Series = c.Series }).OrderBy(c => c.Name))
-{
-Console.WriteLine(characterDTO.Display());
-}
+// Console.WriteLine("Characters from both series made in 1981:\n");
+// foreach(CharacterDTO characterDTO in characters.Where(c => c.YearCreated == 1981).Select(c => new CharacterDTO{ Id = c.Id, Name = c.Name, Series = c.Series }).OrderBy(c => c.Name))
+// {
+// Console.WriteLine(characterDTO.Display());
+// }
 
 // [1.19b] List the character(s) created in that 1981 (all series) - return character name and series only.
-Console.WriteLine("Characters from both series made in 1981:\n");
-foreach(CharacterDTO characterDTO in characters.Where(c => c.YearCreated == 1981).Select(c => new CharacterDTO{ Name = c.Name, Series = c.Series }).OrderBy(c => c.Name))
-{
-Console.WriteLine(characterDTO.Display());
-}
+// Console.WriteLine("Characters from both series made in 1981:\n");
+// foreach(CharacterDTO characterDTO in characters.Where(c => c.YearCreated == 1981).Select(c => new CharacterDTO{ Name = c.Name, Series = c.Series }).OrderBy(c => c.Name))
+// {
+// Console.WriteLine(characterDTO.Display());
+// }
+
+// [1.19c] How many character(s) were created in 1981 (Mario series)
+int mario1981Count = characters.Count(c => c.YearCreated == 1981 && c.Series.Contains("Mario"));
+Console.WriteLine($"Number of characters created in 1981 (Mario series): {mario1981Count}");
