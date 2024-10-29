@@ -154,16 +154,43 @@ Console.Clear();
 // }
 
 // [1.21a] Are there any character(s) with no alias (all series)?
-bool hasNoAlias = characters.Any(c => c.Alias == null || !c.Alias.Any());
-if (hasNoAlias)
-{
-    Console.WriteLine("There are characters with no alias.");
-}
-else
-{
-    Console.WriteLine("All characters have an alias.");
-}
+// bool hasNoAlias = characters.Any(c => c.Alias == null || !c.Alias.Any());
+// if (hasNoAlias)
+// {
+//     Console.WriteLine("There are characters with no alias.");
+// }
+// else
+// {
+//     Console.WriteLine("All characters have an alias.");
+// }
 
 // [1.21b] How many character(s) with no alias (all series)?
 // int noAliasCount = characters.Count(c => c.Alias == null || !c.Alias.Any());
 // Console.WriteLine($"Number of characters with no alias: {noAliasCount}");
+
+// [1.21c] List the character(s) with no alias (all series) - return character name, alias, and series only.
+var noAliasCharacters = characters.Where(c => c.Alias == null || c.Alias.Count == 0).Select(c => 
+    {
+        string alias = "No Alias";
+        string series = "No Series";
+        if (c.Alias != null)
+        {
+            alias = string.Join(", ", c.Alias);
+        }
+        if (c.Series != null)
+        {
+            series = string.Join(", ", c.Series);
+        }
+        return new 
+        {
+            Name = c.Name,
+            Alias = alias,
+            Series = series
+        };
+    });
+
+Console.WriteLine("Characters with no alias (including Mario series):");
+foreach (var character in noAliasCharacters)
+{
+    Console.WriteLine($"Name: {character.Name}, Alias: {character.Alias}, Series: {character.Series}");
+}
