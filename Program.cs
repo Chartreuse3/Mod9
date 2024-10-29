@@ -240,5 +240,19 @@ Console.Clear();
 // }
 
 // [1.21h] How many character(s) with no alias (Donkey Kong series)?
-int noAliasDKCount = characters.Count(c => (c.Alias == null || c.Alias.Count == 0) && c.Series.Contains("Donkey Kong"));
-Console.WriteLine($"Number of characters with no alias in the Donkey Kong series: {noAliasDKCount}");
+// int noAliasDKCount = characters.Count(c => (c.Alias == null || c.Alias.Count == 0) && c.Series.Contains("Donkey Kong"));
+// Console.WriteLine($"Number of characters with no alias in the Donkey Kong series: {noAliasDKCount}");
+
+// [1.21i] List the character(s) with no alias (Donkey Kong series) - return character name and alias only.
+var noAliasDKCharacters = characters.Where(c => (c.Alias == null || c.Alias.Count == 0) && c.Series.Contains("Donkey Kong")).Select(c => 
+    new 
+    {
+        Name = c.Name,
+        Alias = "No Alias"
+    });
+    
+Console.WriteLine("Characters with no alias in the Donkey Kong series:");
+foreach (var character in noAliasDKCharacters)
+{
+    Console.WriteLine($"Name: {character.Name}, Alias: {character.Alias}");
+}
