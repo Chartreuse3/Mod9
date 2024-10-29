@@ -244,15 +244,19 @@ Console.Clear();
 // Console.WriteLine($"Number of characters with no alias in the Donkey Kong series: {noAliasDKCount}");
 
 // [1.21i] List the character(s) with no alias (Donkey Kong series) - return character name and alias only.
-var noAliasDKCharacters = characters.Where(c => (c.Alias == null || c.Alias.Count == 0) && c.Series.Contains("Donkey Kong")).Select(c => 
-    new 
-    {
-        Name = c.Name,
-        Alias = "No Alias"
-    });
+// var noAliasDKCharacters = characters.Where(c => (c.Alias == null || c.Alias.Count == 0) && c.Series.Contains("Donkey Kong")).Select(c => 
+//     new 
+//     {
+//         Name = c.Name,
+//         Alias = "No Alias"
+//     });
     
-Console.WriteLine("Characters with no alias in the Donkey Kong series:");
-foreach (var character in noAliasDKCharacters)
-{
-    Console.WriteLine($"Name: {character.Name}, Alias: {character.Alias}");
-}
+// Console.WriteLine("Characters with no alias in the Donkey Kong series:");
+// foreach (var character in noAliasDKCharacters)
+// {
+//     Console.WriteLine($"Name: {character.Name}, Alias: {character.Alias}");
+// }
+
+// [1.22a] Do any character(s) have an alias of Snowmad King (return type must be boolean)?
+bool hasSnowmadKingAlias = characters.Any(c => c.Alias.Contains("Snowmad King"));
+Console.WriteLine($"{hasSnowmadKingAlias}");
