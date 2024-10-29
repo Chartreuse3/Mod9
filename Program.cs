@@ -134,9 +134,13 @@ Console.Clear();
 // Console.WriteLine($"Number of characters created in 1981 (Donkey Kong series): {dk1981Count}");
 
 // [1.19f] List the character(s) created in that 1981 (Donkey Kong series) - return character name only.
-var dk1981Names = characters.Where(c => c.YearCreated == 1981 && c.Series.Contains("Donkey Kong")).Select(c => c.Name);
-Console.WriteLine("Characters created in 1981 (Mario Series):");
-foreach(var name in dk1981Names)
-{
-    Console.WriteLine(name);
-}
+// var dk1981Names = characters.Where(c => c.YearCreated == 1981 && c.Series.Contains("Donkey Kong")).Select(c => c.Name);
+// Console.WriteLine("Characters created in 1981 (Mario Series):");
+// foreach(var name in dk1981Names)
+// {
+//     Console.WriteLine(name);
+// }
+
+// [1.20a] How many character(s) made their first appearance in Donkey Kong 64?
+int dk64CharacterCount = characters.Count(c => c.FirstAppearance == "Donkey Kong 64");
+Console.WriteLine($"Number of characters from Donkey Kong 64: {dk64CharacterCount}");
