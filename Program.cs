@@ -109,3 +109,10 @@ foreach(CharacterDTO characterDTO in characters.Where(c => c.YearCreated == 1981
 {
 Console.WriteLine(characterDTO.Display());
 }
+
+// [1.19b] List the character(s) created in that 1981 (all series) - return character name and series only.
+Console.WriteLine("Characters from both series made in 1981:\n");
+foreach(CharacterDTO characterDTO in characters.Where(c => c.YearCreated == 1981).Select(c => new CharacterDTO{ Name = c.Name, Series = c.Series }).OrderBy(c => c.Name))
+{
+Console.WriteLine(characterDTO.Display());
+}
