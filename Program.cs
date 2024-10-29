@@ -300,10 +300,14 @@ Console.Clear();
 // Console.WriteLine($"Number of human characters in the Mario series: {humanMarioCount}");
 
 // [1.25b] List the character(s) in the Mario series that are Human species - return character name only.
-var humanMarioNames = characters.Where(c => c.Species == "Human").Select(c => c.Name);
+// var humanMarioNames = characters.Where(c => c.Species == "Human").Select(c => c.Name);
 
-Console.WriteLine("Human characters in the Mario series:");
-foreach (var name in humanMarioNames)
-{
-    Console.WriteLine(name);
-}
+// Console.WriteLine("Human characters in the Mario series:");
+// foreach (var name in humanMarioNames)
+// {
+//     Console.WriteLine(name);
+// }
+
+// [1.25c] How many character(s) in the Mario series are Koopa species?
+int koopaMarioCount = characters.Count(c => c.Species == "Koopa");
+Console.WriteLine($"Number of Koopa characters in the Mario series: {koopaMarioCount}");
