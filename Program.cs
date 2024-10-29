@@ -154,16 +154,16 @@ Console.Clear();
 // }
 
 // [1.21a] Are there any character(s) with no alias (all series)?
-// bool hasNoAlias = characters.Any(c => c.Alias == null);
-// if (hasNoAlias)
-// {
-//     Console.WriteLine("There are characters with no alias.");
-// }
-// else
-// {
-//     Console.WriteLine("All characters have an alias.");
-// }
+bool hasNoAlias = characters.Any(c => c.Alias == null || !c.Alias.Any());
+if (hasNoAlias)
+{
+    Console.WriteLine("There are characters with no alias.");
+}
+else
+{
+    Console.WriteLine("All characters have an alias.");
+}
 
 // [1.21b] How many character(s) with no alias (all series)?
-int noAliasCount = characters.Count(c => c.Alias == null || !c.Alias.Any());
-Console.WriteLine($"Number of characters with no alias: {noAliasCount}");
+// int noAliasCount = characters.Count(c => c.Alias == null || !c.Alias.Any());
+// Console.WriteLine($"Number of characters with no alias: {noAliasCount}");
